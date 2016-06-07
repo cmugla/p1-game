@@ -36,6 +36,7 @@ Traditionally, the tones were chosen to be harmonic, no matter how they were seq
 - Possibly incorporating a real song you end up learning by playing the game
 - Some sweet CSS animations to display the colors changing
 - CSS Shapes
+- Touching for mobile device
 
 ## Wireframe
 
