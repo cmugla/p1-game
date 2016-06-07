@@ -1,11 +1,9 @@
 ---
-title: Command line lab
-type: lab
-duration: "1:25"
+title: Simon
+type: project
 creator:
-    name: Jay Nappy
-    city: LA
-competencies: Workflow
+    name: Celeste Glavin
+    city: NY
 ---
 
 # Command line lab
@@ -14,7 +12,7 @@ competencies: Workflow
 
 > ***Note:*** _This can be a pair programming activity or done independently._
 
-text
+Simon is a game of sequences! You are prompted with 
 
 ## Exercise
 
