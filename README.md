@@ -1,18 +1,8 @@
----
-title: Simon
-type: project
-creator:
-    name: Celeste Glavin
-    city: NY
----
-
-# Command line lab
+# SIMON SINGS
 
 ## Introduction
 
-> ***Note:*** _This can be a pair programming activity or done independently._
-
-Simon is a game of sequences! You are prompted with 
+Simon is a game of memory, based on sounds and colors! It was initally launched in 1978 at Studio 54 in New York City and was an immediate success, becoming a pop culture symbol of the 1970s and 1980s. <a href="https://en.wikipedia.org/wiki/Simon_(game)">_from Wikipedia_</a>
 
 ## Exercise
 
