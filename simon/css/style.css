@@ -1,0 +1,48 @@
+/* VARIABLES */
+/* General Styles */
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+div {
+  width: 50vw;
+  height: 50vh;
+  float: left; }
+
+button {
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #BA55D3;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px; }
+  button:hover {
+    background-color: #EE82EE; }
+
+/* Typography */
+/* Containers */
+#red {
+  background-color: #FF3333;
+  opacity: 1; }
+
+#blue {
+  background-color: #3399CC;
+  opacity: 1; }
+
+#yellow {
+  background-color: #FFFF33;
+  opacity: 1; }
+
+#green {
+  background-color: #99CC66;
+  opacity: 1; }
+
+/*# sourceMappingURL=style.css.map */
