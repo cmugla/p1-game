@@ -1,4 +1,4 @@
-# SIMON SINGS
+# SIMON
 
 ## Introduction
 
