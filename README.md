@@ -40,7 +40,11 @@ Traditionally, the tones were chosen to be harmonic, no matter how they were seq
 
 ## Wireframe
 
-![](https://i.imgur.com/ySAjOeO.png)
+![Home](/images/home.png)
+
+![Initial instructions, fadeout on timeout](/images/initial-instructions.png)
+
+![Hover/play effects](/images/hover-play.png)
 
 ## Additional Resources
 
