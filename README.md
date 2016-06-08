@@ -41,10 +41,13 @@ Traditionally, the tones were chosen to be harmonic, no matter how they were seq
 ## Wireframe
 
 ![Home](/images/home.png)
+Home page
 
 ![Initial instructions, fadeout on timeout](/images/initial-instructions.png)
+Instructions show after start button pressed, fadeout before game starts
 
 ![Hover/play effects](/images/hover-play.png)
+Orbs grow as each note is played, animation triggered for this
 
 ## Additional Resources
 
