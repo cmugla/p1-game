@@ -6,9 +6,9 @@
   var $yellow = $('yellow');
   var $green = $('green');
 
-  var $colors = ['red', 'blue', 'yellow', 'green'];
+  var $colors = ['#red', '#blue', '#yellow', '#green'];
   var $rando = Math.floor(Math.random()*$colors.length);
-  var $simonMove = '#'+$colors[$rando];
+  var simonMove = $colors[$rando];
 
 $(document).ready(function(){
   console.log("loaded");
@@ -27,59 +27,64 @@ $(document).ready(function(){
   $('button').click(simonStart);
 
   function tuneAnim() {
-    $('div').removeClass();
     $rando = Math.floor(Math.random()*$colors.length);
-    $simonMove = '#'+$colors[$rando];
-    $($simonMove).addClass('animated pulse');
-    $simon.push($simonMove);
+    simonMove = $colors[$rando];
+    $(simonMove).addClass('bloom').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+      $(this).removeClass();
+    });
+    $simon.push(simonMove);
     console.log($simon);
     // tunePlays();
   }
 
-  //keycodes up(38), right(39), down(40), left(37)
+  function userInput(id) {
+    $(id).addClass('bloom').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+      $(this).removeClass();
+    });
+    $user.push(id);
+    checkWin();
+    console.log($user);
+  }
 
-  $(document).on("keydown", function(event) {
+  $(document).on("keydown", userPlay);
+
+  function userPlay(event) {
+    $('div').removeClass();
     if(event.which===38) {
-      $('#blue').addClass('animated pulse');
-      $(document).on("keyup", function(event) {
-        $('#blue').removeClass();
-      })
-      console.log($blue);
+      userInput('#blue');
     } // UP: blue
     else if(event.which===39) {
-      $('#yellow').addClass('animated pulse');
-      $(document).on("keyup", function(event) {
-        $('#yellow').removeClass();
-      })
-      console.log($yellow);
+      userInput('#yellow');
     } // RIGHT: yellow
     else if(event.which===40) {
-      $('#red').addClass('animated pulse');
-      $(document).on("keyup", function(event) {
-        $('#red').removeClass();
-      })
-      console.log($red);
+      userInput('#red');
     } // DOWN: red
     else if(event.which===37) {
-      $('#green').addClass('animated pulse');
-      $(document).on("keyup", function(event) {
-        $('#green').removeClass();
-      })
-      console.log($green);
+      userInput('#green');
     } // LEFT: green
     else {
       console.log('not an arrow key');
     }
-  });
+  }
+
+
+  function checkWin() {
+    if($user.join()===$simon.join()) {
+      console.log('they match');
+      setTimeout(tuneAnim,1500);
+    } else {
+      console.log('Nope!');
+      $simon = [];
+      $user = [];
+      $('button').text('Nice Try! Play Again?')
+      $('button').show();
+    }
+  }
 
   function simonStart() {
-    // $(this).fadeIn('slow',function() {
-    //   $(this).append($(this).html("follow the tunes.<br><br>Use the arrow keys to play along."));
-    //   $('p').show();
-    // });
-
     $(this).fadeOut('slow', function() {
-      $(this).remove();
+      $('div').removeClass('bloom');
+      $(this).hide();
       $('p').hide();
     });
 

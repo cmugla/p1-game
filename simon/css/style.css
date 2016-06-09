@@ -7,9 +7,10 @@ body {
   font-family: sans-serif; }
 
 div {
-  width: 50vw;
-  height: 50vh;
-  float: left; }
+  width: 200px;
+  height: 200px;
+  float: left;
+  border-radius: 50%; }
 
 button {
   cursor: pointer;
@@ -29,20 +30,70 @@ button {
 
 /* Typography */
 /* Containers */
-#red {
-  background-color: #FF3333;
-  opacity: 1; }
-
 #blue {
   background-color: #3399CC;
-  opacity: 1; }
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: 0; }
+  #blue.bgColor {
+    background-color: lightblue; }
 
 #yellow {
   background-color: #FFFF33;
-  opacity: 1; }
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: -200px;
+  margin-top: -100px; }
+  #yellow.bgColor {
+    background-color: yellow; }
+
+#red {
+  background-color: #FF3333;
+  opacity: 1;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -200px; }
+  #red.bgColor {
+    background-color: red; }
 
 #green {
   background-color: #99CC66;
-  opacity: 1; }
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-left: 0;
+  margin-top: -100px; }
+  #green.bgColor {
+    background-color: chartreuse; }
+
+.bloom {
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s; }
+  .bloom::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    animation: cd-pulse 1s; }
+
+@keyframes cd-pulse {
+  0% {
+    box-shadow: 0 0 0 0 #0079ff; }
+  100% {
+    box-shadow: 0 0 0 200px rgba(255, 150, 44, 0); } }
 
 /*# sourceMappingURL=style.css.map */
