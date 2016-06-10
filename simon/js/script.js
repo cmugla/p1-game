@@ -47,7 +47,7 @@ $(document).ready(function(){
 
   function simonSing() {
     // display the animations of each of simons move at 1s intervals
-    for(let t=0; t<$simon.length; t++) {
+    for(var t=0; t<$simon.length; t++) {
       setTimeout(function() {
         $($simon[t])
           .addClass('bloom')
