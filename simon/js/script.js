@@ -50,7 +50,7 @@ $(document).ready(function(){
         $($simon[t])
           .addClass('bloom')
           .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){ $(this).removeClass(); });
-      }, t*1000);
+      }, t*700);
     }
 
     // start listening for keypresses
