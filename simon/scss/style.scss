@@ -41,8 +41,12 @@ button {
   border:0;
   background-color: $purple;
   color: white;
+  text-transform: uppercase;
   &:hover {
     background-color: $lightPurple;
+  }
+  & span {
+    text-transform: none;
   }
 }
 
@@ -160,6 +164,7 @@ button {
   }
 
   button {
+    font-size: 3em;
     width: 100vw;
     height: 100vh;
     z-index: 9999;
@@ -169,9 +174,12 @@ button {
     &:hover {
       background-color: $lightPurpleO;
     }
+    & span.mobile {
+      display: none;
+    }
   }
 
-  /* Modified from https://jsfiddle.net/yeghb8oo/, suggested by Philip Enc on Stack Overflow */
+/* Modified from https://jsfiddle.net/yeghb8oo/, suggested by Philip Enc on Stack Overflow */
   .bloom {
     position: absolute;
     display: inline-block;
@@ -197,6 +205,7 @@ button {
     z-index: 9998;
     &::after {
       position: absolute;
+      animation-duration:0.1s;
     }
   }
 
@@ -230,6 +239,13 @@ button {
     position: absolute;
     top: 50%;
     left: 50%;
+    font-size: 1em;
+    & span.desktop {
+      display: none;
+    }
+    & span.mobile {
+      display: block;
+    }
   }
 }
 

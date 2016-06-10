@@ -124,8 +124,14 @@ $(document).ready(function(){
     // checks if the user has more keys to press before win
     if($user.length < $simon.length) {
       console.log("User has less inputs, iterate again");
-      // if yes, listens for a keypress
-      iterateUser();
+      if($user[$user.length-1]===$simon[$user.length-1]) {
+        // if yes, listens for a keypress
+        iterateUser();
+      } else {
+        console.log('Nope!');
+        $('button').text('Nice Try! Play Again?')
+        $('button').show();
+      }
     } // if they have the same length
       else if($user.length===$simon.length) {
         // check if they match
