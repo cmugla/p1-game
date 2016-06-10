@@ -1,55 +1,71 @@
   var $simon = [];
   var $user = [];
 
-  var $red = $('red');
-  var $blue = $('blue');
-  var $yellow = $('yellow');
-  var $green = $('green');
-
   var $colors = ['#red', '#blue', '#yellow', '#green'];
-  var $rando = Math.floor(Math.random()*$colors.length);
-  var simonMove = $colors[$rando];
+  var $rando;
+  var simonMove;
 
 $(document).ready(function(){
   console.log("loaded");
 
+  // hides p elements on start (not styled yet)
   $('p').hide();
 
-  function change() {
-    $(this).css('opacity','1.0');
-  }
-
-  function changeBack() {
-    $(this).css('opacity','0.5');
-  }
-
-  // $('div').hover(change, changeBack);
+  // when button clicked, start game
   $('button').click(simonStart);
 
-  function tuneAnim() {
-    $rando = Math.floor(Math.random()*$colors.length);
-    simonMove = $colors[$rando];
-    $(simonMove).addClass('bloom').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
-      $(this).removeClass();
+  // start game
+  function simonStart() {
+    // reset user and simon inputs from any previous games, remove any classes left behind
+    $user = [];
+    $simon = [];
+    $('div').removeClass('bloom');
+    // fade out the start button (get it out of the way)
+    $(this).fadeOut('slow', function() {
+      $(this).hide();
+      $('p').hide();
     });
+
+    // after button fades, start the computer animations
+    setTimeout(tuneAnim, 1000);
+  }
+
+  function tuneAnim() {
+    // generate a new random number for the index of the array
+    $rando = Math.floor(Math.random()*$colors.length);
+    // set the id of Simon's move
+    simonMove = $colors[$rando];
+    // add that move to the simon array
     $simon.push(simonMove);
     console.log($simon);
-    // tunePlays();
+
+    // start the animations
+    simonSing();
   }
 
-  function userInput(id) {
-    $(id).addClass('bloom').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
-      $(this).removeClass();
-    });
-    $user.push(id);
-    checkWin();
-    console.log($user);
+  function simonSing() {
+    // display the animations of each of simons move at 1s intervals
+    for(let t=0; t<$simon.length; t++) {
+      setTimeout(function() {
+        $($simon[t])
+          .addClass('bloom')
+          .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){ $(this).removeClass(); });
+      }, t*1000);
+    }
+
+    // start listening for keypresses
+    iterateUser();
   }
 
-  $(document).on("keydown", userPlay);
+  function iterateUser() {
+    // listen for which key is pressed
+    $(document).off("keydown", userPlay).on("keydown", userPlay);
+  }
 
   function userPlay(event) {
+    // remove any lost classes
     $('div').removeClass();
+    // depending on which key pressed, show an animation for the appropriate div
     if(event.which===38) {
       userInput('#blue');
     } // UP: blue
@@ -67,37 +83,41 @@ $(document).ready(function(){
     }
   }
 
+  function userInput(id) {
+    // show an animation for the approporiate div
+    $(id).addClass('bloom').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+      $(this).removeClass();
+    });
+    // push that input into the array
+    $user.push(id);
+
+    console.log($user);
+    // check if that input was correct
+    checkWin();
+  }
 
   function checkWin() {
-    if($user.join()===$simon.join()) {
-      console.log('they match');
-      setTimeout(tuneAnim,1500);
+    // checks if the user has more keys to press before win
+    if($user.length < $simon.length) {
+      console.log("User has less inputs, iterate again");
+      // if yes, listens for a keypress
+      iterateUser();
+    } // if they have the same length
+      else if($user.length===$simon.length) {
+        // check if they match
+        if($user.join()===$simon.join()) {
+          console.log('they match');
+          // start user with an empty array before they guess
+          $user=[];
+          setTimeout(tuneAnim,1000);
+        } else {
+          console.log('Nope!');
+          $('button').text('Nice Try! Play Again?')
+          $('button').show();
+        }
     } else {
-      console.log('Nope!');
-      $simon = [];
-      $user = [];
-      $('button').text('Nice Try! Play Again?')
-      $('button').show();
+      console.log("for some reason, user has more inputs than Simon");
     }
-  }
-
-  function simonStart() {
-    $(this).fadeOut('slow', function() {
-      $('div').removeClass('bloom');
-      $(this).hide();
-      $('p').hide();
-    });
-
-    setTimeout(tuneAnim, 1000);
-  }
-
-  function tunePlays() {
-    setTimeout(tuneAnim, 1000);
-  }
-
-  function displayAnim() {
-    // each index is displayed at a timeout of ####ms
-  }
-
+  };
 
 });
