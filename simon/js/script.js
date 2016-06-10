@@ -8,9 +8,6 @@
 $(document).ready(function(){
   console.log("loaded");
 
-  // hides p elements on start (not styled yet)
-  $('p').hide();
-
   // when button clicked, start game
   $('button').click(simonStart);
 
@@ -20,10 +17,15 @@ $(document).ready(function(){
     $user = [];
     $simon = [];
     $('div').removeClass('bloom');
+
+    $('p').show();
+
     // fade out the start button (get it out of the way)
     $(this).fadeOut('slow', function() {
       $(this).hide();
-      $('p').hide();
+      setTimeout(function() {
+        $('p').hide();
+      }, 1000);
     });
 
     // after button fades, start the computer animations
@@ -142,7 +144,8 @@ $(document).ready(function(){
           setTimeout(tuneAnim,1000);
         } else {
           console.log('Nope!');
-          $('button').text('Nice Try! Play Again?')
+          $('button').html("<span>Sahweet, you scored a "
+            + $simon.length + "</span> Play again?");
           $('button').show();
         }
     } else {

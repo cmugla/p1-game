@@ -6,6 +6,10 @@ body {
   padding: 0;
   font-family: sans-serif; }
 
+section {
+  margin: 0;
+  padding: 0; }
+
 div {
   width: 200px;
   height: 200px;
@@ -24,8 +28,19 @@ button {
   button span {
     text-transform: none; }
 
+span {
+  display: block; }
+
 /* Typography */
 /* Containers */
+#blue, #yellow, #red, #green {
+  text-align: center; }
+  #blue p, #yellow p, #red p, #green p {
+    margin-top: 55px;
+    font-size: 5em;
+    color: white;
+    display: none; }
+
 #blue {
   background-color: #1E90FF; }
 
@@ -85,29 +100,28 @@ button {
     box-shadow: 0 0 0 200px rgba(0, 255, 127, 0); } }
 /* MEDIA QUERIES */
 @media only screen and (min-width: 801px) {
+  #blue, #yellow, #red, #green {
+    position: absolute; }
+
   #blue {
-    position: absolute;
     top: 0;
     left: 50%;
     margin-left: -100px;
     margin-top: 0; }
 
   #yellow {
-    position: absolute;
     top: 50%;
     left: 100%;
     margin-left: -200px;
     margin-top: -100px; }
 
   #red {
-    position: absolute;
     top: 100%;
     left: 50%;
     margin-left: -100px;
     margin-top: -200px; }
 
   #green {
-    position: absolute;
     top: 50%;
     left: 0;
     margin-left: 0;
@@ -115,25 +129,26 @@ button {
 
   button {
     font-size: 3em;
+    padding: 0;
     width: 100vw;
     height: 100vh;
     z-index: 9999;
     border: 0;
-    background-color: rgba(186, 85, 211, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     position: absolute; }
     button:hover {
-      background-color: rgba(238, 130, 238, 0.7); }
+      background-color: rgba(0, 0, 0, 0.9); }
     button span.mobile {
       display: none; }
 
   /* Modified from https://jsfiddle.net/yeghb8oo/, suggested by Philip Enc on Stack Overflow */
   .bloom {
-    position: absolute;
     display: inline-block;
-    border-radius: 50%; }
+    border-radius: 50%;
+    margin-left: -100px; }
     .bloom::after {
-      position: absolute;
-      border-radius: 50%; } }
+      border-radius: 50%;
+      margin-left: -100px; } }
 @media screen and (max-width: 800px) {
   #blue, #yellow, #green, #red {
     width: 50vw;
@@ -142,11 +157,9 @@ button {
     position: absolute; }
 
   .bloom {
-    position: absolute;
     display: inline-block;
     z-index: 9998; }
     .bloom::after {
-      position: absolute;
       animation-duration: 0.1s; }
 
   #blue {

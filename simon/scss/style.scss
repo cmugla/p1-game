@@ -28,6 +28,11 @@ body {
   font-family: $sansSerif;
 }
 
+section {
+  margin:0;
+  padding:0;
+}
+
 div {
   width: 200px;
   height:200px;
@@ -50,9 +55,23 @@ button {
   }
 }
 
+span {
+  display: block;
+}
+
 /* Typography */
 
 /* Containers */
+#blue, #yellow, #red, #green {
+  text-align: center;
+  & p {
+    margin-top:55px;
+    font-size: 5em;
+    color: white;
+    display:none;
+  }
+}
+
 #blue {
   background-color: $blue;
 }
@@ -131,8 +150,11 @@ button {
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 801px) {
-  #blue {
+  #blue, #yellow, #red, #green {
     position: absolute;
+  }
+
+  #blue {
     top:0;
     left:50%;
     margin-left:-100px;
@@ -140,7 +162,6 @@ button {
   }
 
   #yellow {
-    position: absolute;
     top:50%;
     left:100%;
     margin-left:-200px;
@@ -148,7 +169,6 @@ button {
   }
 
   #red {
-    position: absolute;
     top:100%;
     left:50%;
     margin-left:-100px;
@@ -156,7 +176,6 @@ button {
   }
 
   #green {
-    position: absolute;
     top:50%;
     left:0;
     margin-left:0;
@@ -165,14 +184,15 @@ button {
 
   button {
     font-size: 3em;
+    padding:0;
     width: 100vw;
     height: 100vh;
     z-index: 9999;
     border:0;
-    background-color: $purpleO;
+    background-color: rgba(0,0,0,0.7);
     position: absolute;
     &:hover {
-      background-color: $lightPurpleO;
+      background-color: rgba(0,0,0,0.9);
     }
     & span.mobile {
       display: none;
@@ -181,12 +201,12 @@ button {
 
 /* Modified from https://jsfiddle.net/yeghb8oo/, suggested by Philip Enc on Stack Overflow */
   .bloom {
-    position: absolute;
     display: inline-block;
     border-radius: 50%;
+    margin-left: -100px;
     &::after {
-      position: absolute;
       border-radius: 50%;
+      margin-left:-100px;
     }
   }
 }
@@ -200,11 +220,9 @@ button {
   }
 
   .bloom {
-    position: absolute;
     display: inline-block;
     z-index: 9998;
     &::after {
-      position: absolute;
       animation-duration:0.1s;
     }
   }
