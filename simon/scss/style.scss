@@ -8,8 +8,10 @@
     $yellowRGB: rgba(255,255,102,0);
   $green: #00FF7F;
     $greenRGB: rgba(0,255,127,0);
-  $purple: #BA55D3;
-    $lightPurple: #EE82EE;
+  $purple: rgba(186, 85, 211, 1.0);
+    $lightPurple: rgba(238, 130, 238, 1.0);
+  $purpleO: rgba(186, 85, 211, 0.7);
+    $lightPurpleO: rgba(238, 130, 238, 0.7);
 
   //typography
   $sansSerif: sans-serif;
@@ -31,20 +33,14 @@ div {
   height:200px;
   float: left;
   border-radius: 50%;
+  z-index: 999;
 }
 
 button {
   cursor: pointer;
-  width: 300px;
-  height: 200px;
   border:0;
   background-color: $purple;
   color: white;
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  margin-top:-100px;
-  margin-left:-150px;
   &:hover {
     background-color: $lightPurple;
   }
@@ -55,22 +51,18 @@ button {
 /* Containers */
 #blue {
   background-color: $blue;
-  opacity: $opacity;
 }
 
 #yellow {
   background-color: $yellow;
-  opacity: $opacity;
 }
 
 #red {
   background-color: $red;
-  opacity: $opacity;
 }
 
 #green {
   background-color: $green;
-  opacity: $opacity;
 }
 
 
@@ -167,6 +159,18 @@ button {
     margin-top:-100px;
   }
 
+  button {
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border:0;
+    background-color: $purpleO;
+    position: absolute;
+    &:hover {
+      background-color: $lightPurpleO;
+    }
+  }
+
   /* Modified from https://jsfiddle.net/yeghb8oo/, suggested by Philip Enc on Stack Overflow */
   .bloom {
     position: absolute;
@@ -187,18 +191,10 @@ button {
     position: absolute;
   }
 
-  // #yellow, #red {
-  //   float: right;
-  // }
-
-  // #blue, #green {
-  //   float:left;
-  // }
-
   .bloom {
     position: absolute;
     display: inline-block;
-    z-index: 999;
+    z-index: 9998;
     &::after {
       position: absolute;
     }
@@ -228,9 +224,12 @@ button {
     border-radius: 50%;
     width:200px;
     height:200px;
-    z-index: 1000;
+    z-index: 9999;
     margin-top: -100px;
     margin-left:-100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
   }
 }
 

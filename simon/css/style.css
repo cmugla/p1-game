@@ -10,40 +10,30 @@ div {
   width: 200px;
   height: 200px;
   float: left;
-  border-radius: 50%; }
+  border-radius: 50%;
+  z-index: 999; }
 
 button {
   cursor: pointer;
-  width: 300px;
-  height: 200px;
   border: 0;
-  background-color: #BA55D3;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -150px; }
+  background-color: mediumorchid;
+  color: white; }
   button:hover {
-    background-color: #EE82EE; }
+    background-color: violet; }
 
 /* Typography */
 /* Containers */
 #blue {
-  background-color: #1E90FF;
-  opacity: 1; }
+  background-color: #1E90FF; }
 
 #yellow {
-  background-color: #FFFF33;
-  opacity: 1; }
+  background-color: #FFFF33; }
 
 #red {
-  background-color: #DC143C;
-  opacity: 1; }
+  background-color: #DC143C; }
 
 #green {
-  background-color: #00FF7F;
-  opacity: 1; }
+  background-color: #00FF7F; }
 
 /* Modified from https://jsfiddle.net/yeghb8oo/, suggested by Philip Enc on Stack Overflow */
 .bloom {
@@ -120,6 +110,16 @@ button {
     margin-left: 0;
     margin-top: -100px; }
 
+  button {
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border: 0;
+    background-color: rgba(186, 85, 211, 0.7);
+    position: absolute; }
+    button:hover {
+      background-color: rgba(238, 130, 238, 0.7); }
+
   /* Modified from https://jsfiddle.net/yeghb8oo/, suggested by Philip Enc on Stack Overflow */
   .bloom {
     position: absolute;
@@ -138,7 +138,7 @@ button {
   .bloom {
     position: absolute;
     display: inline-block;
-    z-index: 999; }
+    z-index: 9998; }
     .bloom::after {
       position: absolute; }
 
@@ -162,8 +162,11 @@ button {
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    z-index: 1000;
+    z-index: 9999;
     margin-top: -100px;
-    margin-left: -100px; } }
+    margin-left: -100px;
+    position: absolute;
+    top: 50%;
+    left: 50%; } }
 
 /*# sourceMappingURL=style.css.map */
