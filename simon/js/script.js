@@ -16,19 +16,18 @@ $(document).ready(function(){
     // reset user and simon inputs from any previous games, remove any classes left behind
     $user = [];
     $simon = [];
-    $('div').removeClass('bloom');
 
     $('p').show();
 
     // fade out the start button (get it out of the way)
     $(this).fadeOut('slow', function() {
       $(this).hide();
-      setTimeout(function() {
-        $('p').hide();
-      }, 1000);
+      // setTimeout(function() {
+      //   $('p').hide();
+      // }, 1000);
     });
 
-    // after button fades, start the computer animations
+    // after button fades, start the game
     setTimeout(tuneAnim, 1000);
   }
 
@@ -47,11 +46,12 @@ $(document).ready(function(){
 
   function simonSing() {
     // display the animations of each of simons move at 1s intervals
-    for(var t=0; t<$simon.length; t++) {
+    for(let t=0; t<$simon.length; t++) {
       setTimeout(function() {
         $($simon[t])
           .addClass('bloom')
           .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){ $(this).removeClass(); });
+        playAudio($simon[t]);
       }, t*700);
     }
 
@@ -72,15 +72,19 @@ $(document).ready(function(){
 
   function checkClick() {
     if (this===$('#blue')[0]) {
+      playAudio('#blue');
       userInput('#blue');
       console.log('blue');
     } else if (this===$('#red')[0]) {
+      playAudio('#red');
       userInput('#red');
       console.log('red');
     } else if (this===$('#yellow')[0]) {
+      playAudio('#yellow');
       userInput('#yellow');
       console.log('yelow');
     } else if (this===$('#green')[0]) {
+      playAudio('#green');
       userInput('#green');
       console.log('green');
     } else {
@@ -93,19 +97,53 @@ $(document).ready(function(){
     $('div').removeClass();
     // depending on which key pressed, show an animation for the appropriate div
     if(event.which===38) {
+      playAudio('#blue');
       userInput('#blue');
     } // UP: blue
     else if(event.which===39) {
+      playAudio('#yellow');
       userInput('#yellow');
     } // RIGHT: yellow
     else if(event.which===40) {
+      playAudio('#red');
       userInput('#red');
     } // DOWN: red
     else if(event.which===37) {
+      playAudio('#green');
       userInput('#green');
     } // LEFT: green
     else {
       console.log('not an arrow key');
+    }
+  }
+
+  // audio elements
+  // modified from Ahmet Can Güven's post on Stack Overflow http://stackoverflow.com/questions/8489710/play-an-audio-file-using-jquery-when-a-button-is-clicked
+  var audioElement = $('audio');
+  var notes = [ 'audio/A_2.mp3',
+                'audio/Csharp_2.mp3',
+                'audio/E_2.mp3',
+                'audio/Elow_2.mp3'];
+  var indexBlue = 2;
+  var indexYellow = 1;
+  var indexRed = 0;
+  var indexGreen = 3;
+
+  function playAudio(id) {
+    // play audio
+
+    if(id==='#blue') {
+      audioElement
+        .attr({src:notes[indexBlue], autoplay:'autoplay'})
+    } else if(id==='#yellow') {
+      audioElement
+        .attr({src:notes[indexYellow], autoplay:'autoplay'})
+    } else if(id==='#red') {
+      audioElement
+        .attr({src:notes[indexRed], autoplay:'autoplay'})
+    } else if(id==='#green') {
+      audioElement
+        .attr({src:notes[indexGreen], autoplay:'autoplay'})
     }
   }
 
