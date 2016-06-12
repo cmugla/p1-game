@@ -119,7 +119,6 @@ $(document).ready(function(){
 
   // audio elements
   // modified from Ahmet Can Güven's post on Stack Overflow http://stackoverflow.com/questions/8489710/play-an-audio-file-using-jquery-when-a-button-is-clicked
-  var audioElement = $('audio');
   var notes = [ 'audio/A_2.mp3',
                 'audio/Csharp_2.mp3',
                 'audio/E_2.mp3',
@@ -131,6 +130,7 @@ $(document).ready(function(){
 
   function playAudio(id) {
     // play audio
+    var audioElement = $(id+' audio');
 
     if(id==='#blue') {
       audioElement
@@ -169,8 +169,9 @@ $(document).ready(function(){
         iterateUser();
       } else {
         console.log('Nope!');
-        $('button').text('Nice Try! Play Again?')
-        $('button').show();
+        $('button').html("<span>Sahweet, you scored a "
+            + $simon.length + "</span> Play again?");
+          $('button').show();
       }
     } // if they have the same length
       else if($user.length===$simon.length) {
