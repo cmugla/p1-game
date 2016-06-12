@@ -22,16 +22,16 @@ $(document).ready(function(){
     // fade out the start button (get it out of the way)
     $(this).fadeOut('slow', function() {
       $(this).hide();
-      // setTimeout(function() {
-      //   $('p').hide();
-      // }, 1000);
+      setTimeout(function() {
+        $('p').hide();
+      }, 1000);
     });
 
     // after button fades, start the game
-    setTimeout(tuneAnim, 1000);
+    setTimeout(simonSqnc, 1000);
   }
 
-  function tuneAnim() {
+  function simonSqnc() {
     // generate a new random number for the index of the array
     $rando = Math.floor(Math.random()*$colors.length);
     // set the id of Simon's move
@@ -52,11 +52,24 @@ $(document).ready(function(){
           .addClass('bloom')
           .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){ $(this).removeClass(); });
         playAudio($simon[t]);
+        if ($(window).width() > 800){
+          if($simon.length>2) {
+            $('div').css({width:simonGrow,height:simonGrow});
+            $('#blue').css({'margin-left':-100*($simon.length/2),'margin-top':0})
+            $('#red').css({'margin-left':-100*($simon.length/2),'margin-top':-200*($simon.length/2)})
+            $('#green').css({'margin-left':0,'margin-top':-100*($simon.length/2)})
+            $('#yellow').css({'margin-left':-200*($simon.length/2),'margin-top':-100*($simon.length/2)})
+          }
+        }
       }, t*700);
     }
 
     // start listening for keypresses
     iterateUser();
+  }
+
+  function simonGrow() {
+    return 200*($simon.length/2)
   }
 
   function iterateUser() {
@@ -168,10 +181,7 @@ $(document).ready(function(){
         // if yes, listens for a keypress
         iterateUser();
       } else {
-        console.log('Nope!');
-        $('button').html("<span>Sahweet, you scored a "
-            + $simon.length + "</span> Play again?");
-          $('button').show();
+        overMsg();
       }
     } // if they have the same length
       else if($user.length===$simon.length) {
@@ -180,16 +190,29 @@ $(document).ready(function(){
           console.log('they match');
           // start user with an empty array before they guess
           $user=[];
-          setTimeout(tuneAnim,1000);
+          setTimeout(simonSqnc,1000);
         } else {
-          console.log('Nope!');
-          $('button').html("<span>Sahweet, you scored a "
-            + $simon.length + "</span> Play again?");
-          $('button').show();
+          overMsg();
         }
     } else {
       console.log("for some reason, user has more inputs than Simon");
     }
   };
+
+  function overMsg() {
+    console.log('Nope!');
+    $('button').html("<span>Nice! You scored a "
+      + $simon.length + "</span> Play again?");
+    $('button').show();
+
+    // reset orbs
+    if ($(window).width() > 800) {
+      $('div').css({width:200,height:200});
+      $('#blue').css({'margin-left':-100,'margin-top':0})
+      $('#red').css({'margin-left':-100,'margin-top':-200})
+      $('#green').css({'margin-left':0,'margin-top':-100})
+      $('#yellow').css({'margin-left':-200,'margin-top':-100})
+    }
+  }
 
 });

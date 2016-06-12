@@ -72,32 +72,48 @@ span {
 
 @keyframes cd-pulse-blue {
   0% {
+    -webkit-box-shadow: 0 0 0 0 #1E90FF;
+    -moz-box-shadow: 0 0 0 0 #1E90FF;
     box-shadow: 0 0 0 0 #1E90FF; }
   100% {
+    -webkit-box-shadow: 0 0 0 200px rgba(220, 20, 60, 0);
+    -moz-box-shadow: 0 0 0 200px rgba(220, 20, 60, 0);
     box-shadow: 0 0 0 200px rgba(220, 20, 60, 0); } }
 #red.bloom::after {
   animation: cd-pulse-red 0.5s; }
 
 @keyframes cd-pulse-red {
   0% {
+    -webkit-box-shadow: 0 0 0 0 #DC143C;
+    -moz-box-shadow: 0 0 0 0 #DC143C;
     box-shadow: 0 0 0 0 #DC143C; }
   100% {
+    -webkit-box-shadow: 0 0 0 200px rgba(220, 20, 60, 0);
+    -moz-box-shadow: 0 0 0 200px rgba(220, 20, 60, 0);
     box-shadow: 0 0 0 200px rgba(220, 20, 60, 0); } }
 #yellow.bloom::after {
   animation: cd-pulse-yellow 0.5s; }
 
 @keyframes cd-pulse-yellow {
   0% {
+    -webkit-box-shadow: 0 0 0 0 #FFFF33;
+    -moz-box-shadow: 0 0 0 0 #FFFF33;
     box-shadow: 0 0 0 0 #FFFF33; }
   100% {
+    -webkit-box-shadow: 0 0 0 200px rgba(255, 255, 102, 0);
+    -moz-box-shadow: 0 0 0 200px rgba(255, 255, 102, 0);
     box-shadow: 0 0 0 200px rgba(255, 255, 102, 0); } }
 #green.bloom::after {
   animation: cd-pulse-green 0.5s; }
 
 @keyframes cd-pulse-green {
   0% {
+    -webkit-box-shadow: 0 0 0 0 #00FF7F;
+    -moz-box-shadow: 0 0 0 0 #00FF7F;
     box-shadow: 0 0 0 0 #00FF7F; }
   100% {
+    -webkit-box-shadow: 0 0 0 200px rgba(0, 255, 127, 0);
+    -moz-box-shadow: 0 0 0 200px rgba(0, 255, 127, 0);
     box-shadow: 0 0 0 200px rgba(0, 255, 127, 0); } }
 /* MEDIA QUERIES */
 @media only screen and (min-width: 801px) {
@@ -162,27 +178,37 @@ span {
 
   .bloom {
     display: inline-block;
-    z-index: 9998;
-    margin: 0; }
+    z-index: 9998; }
     .bloom::after {
-      animation-duration: 0.1s;
-      margin: 0; }
+      animation-duration: 0.1s; }
 
   #blue {
     top: 0;
     left: 0; }
+    #blue.bloom::after {
+      top: 0;
+      left: 0; }
 
   #red {
     bottom: 0;
     right: 0; }
+    #red.bloom::after {
+      bottom: 0;
+      right: 0; }
 
   #green {
     left: 0;
     bottom: 0; }
+    #green.bloom::after {
+      left: 0;
+      bottom: 0; }
 
   #yellow {
     right: 0;
     top: 0; }
+    #yellow.bloom::after {
+      right: 0;
+      top: 0; }
 
   button {
     border-radius: 50%;
