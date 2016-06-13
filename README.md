@@ -76,7 +76,7 @@ Finally, after the layout was styled and structured and the game itself worked p
 ## Special thanks to...
 
 - <a href="https://en.wikipedia.org/wiki/Simon_(game)">_Wikipedia_</a> for specs and background of the game
-- <a href="https://jsfiddle.net/yeghb8oo/">_JSFiddle_</a> for CSS animation (cd-pulse, I call bloom)-Link was posted by Philip Enc on Stack Overflow
+- <a href="https://jsfiddle.net/yeghb8oo/">_JSFiddle_</a> for CSS animation (cd-pulse, I call bloom)-Link was posted by <a href="http://stackoverflow.com/questions/28623446/expand-bottom-border-on-hover">Philip Enc on Stack Overflow</a>
 - Ahmet Can Güven, who posted on <a href="http://stackoverflow.com/questions/8489710/play-an-audio-file-using-jquery-when-a-button-is-clicked">_Stack Overflow_</a> about incorporating audio
 - Cyrus Shahrivar, for his understanding of how event listeners are stored, even when they are seemingly removed
 - GA's WDI for necessary background in Javascript and jQuery, and using them to build dynamic websites
