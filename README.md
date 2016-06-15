@@ -33,6 +33,7 @@ Traditionally, the tones were chosen to be harmonic. I remember, as a child, bei
 
 ## Special Instructions
 
+- Follow this link to play: http://cmugla.github.io/p1-game/simon/
 - Please play with Chrome, currently this game is not equipped to work on Safari or FireFox browsers :(
 - Sadly, this means no phone capabilities quite yet, stay tuned for updates!
 
