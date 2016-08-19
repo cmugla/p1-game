@@ -6,6 +6,8 @@ Simon is a game of memory, based on sounds and colors! It was initally launched 
 
 Traditionally, the tones were chosen to be harmonic. I remember, as a child, being sucked into this game because of the harmonies. It felt like I was playing an instrument and learning a song. 
 
+[Play Here](http://cmugla.github.io/simon-game/simon/)
+
 ## Tasks for users
 
 - This is a Human vs computer game
